@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import Swal from'sweetalert2';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +15,16 @@ export class LoginComponent implements OnInit {
 
 
   login(){
-    this.router.navigate(['/posts/all']);  
+    Swal.fire({
+      title: 'Wellcome!',
+      text: '',
+      showConfirmButton: false,
+      timer: 1500,
+      icon:"success"
+      
+    }).then((result) => {
+      this.router.navigate(['/posts/all']);
+  });    
   }
 
   ngOnInit(): void {
