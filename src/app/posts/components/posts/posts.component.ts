@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/app/core/interfaces/Post';
 import { PostsService } from '../../services/posts.service';
+import { StoragePostsService } from '../../storage/storage-posts.service';
 
 @Component({
   selector: 'app-posts',
@@ -12,18 +13,48 @@ export class PostsComponent implements OnInit {
 
   public listPosts:Post[]=[];
 
-  constructor(private router:Router,private postsService:PostsService) { }
+  constructor(private route: ActivatedRoute,private storagePostsService:StoragePostsService,private router:Router,private postsService:PostsService) { }
 
   
   getPosts(){
-      this.postsService.getList().subscribe(posts => {
-        this.listPosts=JSON.parse(JSON.stringify(posts));
-      })
+    this.listPosts=this.storagePostsService.getPosts();
+    this.storagePostsService.storagePosts$.next(this.listPosts);
   }
+
+  getPostsByUserId(userId:number){    
+    this.listPosts=this.storagePostsService.getPostsByUserId(userId.toString());   
+    this.storagePostsService.storagePosts$.next(this.listPosts);
+  }
+
   
   
+  
+  
+  
+  
+  
+  // getPosts(){
+  //     this.postsService.getList().subscribe(posts => {
+  //       this.listPosts=JSON.parse(JSON.stringify(posts));
+  //     })
+  // }    
   ngOnInit(): void {
-    this.getPosts();
+    this.storagePostsService.getHandlerSuperHero$().subscribe(list=>{
+      //alert("subb")
+      console.error(list)      
+      this.listPosts=JSON.parse(JSON.stringify(list));
+    })
+
+
+
+    if (typeof this.route.snapshot.params['userId'] !== 'undefined') {      
+      this.getPostsByUserId(this.route.snapshot.params['userId']);
+    } else {      
+      this.getPosts();
+    }
+
+
+    
   }
 
 }

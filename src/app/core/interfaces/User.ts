@@ -1,5 +1,5 @@
-import { Address } from "cluster";
 import { Company } from "./Company";
+import { Address } from "./Address";
 
 export interface User {
     id?: number;

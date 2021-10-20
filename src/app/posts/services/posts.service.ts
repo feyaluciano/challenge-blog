@@ -17,6 +17,9 @@ getList():Observable<Post[]>{
 }
 
 
+
+
+
 getCommentsByIdPost(id:number):Observable<Comment[]>{        
   return this._http.get<Comment[]>(`${this.api_url}/posts/${id}/comments`, {headers : {'Content-Type' : 'application/json; charset=UTF-8'}     
 });

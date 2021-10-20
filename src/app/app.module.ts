@@ -9,6 +9,8 @@ import { PostsModule } from './posts/posts.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { MyProfileModule } from './my-profile/my-profile.module';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,14 +19,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserModule,
     CommonModule,
-    BrowserModule,
+    
+    
+
+    AppRoutingModule,
+
 
     FormsModule,
     ReactiveFormsModule,
-
-    AppRoutingModule,
     AuthModule,
-    PostsModule
+
+    
+    
+    PostsModule,
+    MyProfileModule
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy } ],
   bootstrap: [AppComponent]

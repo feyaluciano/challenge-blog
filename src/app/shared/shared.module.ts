@@ -7,14 +7,15 @@ import { FriendRequestsComponent } from './components/friend-requests/friend-req
 import { FooterComponent } from './components/footer/footer.component';
 import { MoreFeaturesComponent } from './components/more-features/more-features.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { PresentationComponent } from './components/presentation/presentation.component';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, NavbarComponent, AdvertisingComponent,FriendRequestsComponent, FooterComponent, MoreFeaturesComponent, ChatComponent],
+  declarations: [HeaderComponent, NavbarComponent, AdvertisingComponent,FriendRequestsComponent, FooterComponent, MoreFeaturesComponent, ChatComponent,PresentationComponent],
   imports: [
     CommonModule
   ],
-  exports:[HeaderComponent, NavbarComponent,AdvertisingComponent,FriendRequestsComponent, FooterComponent, MoreFeaturesComponent, ChatComponent]
+  exports:[HeaderComponent, NavbarComponent,AdvertisingComponent,FriendRequestsComponent, FooterComponent, MoreFeaturesComponent, ChatComponent,PresentationComponent]
 })
 export class SharedModule { }

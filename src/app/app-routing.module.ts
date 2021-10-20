@@ -14,6 +14,27 @@ const routes:Routes=[
       m => m.PostsModule
       ),         
   },
+  {
+    path: 'my-profile',
+    loadChildren: () => import('./my-profile/my-profile.module').then(m => m.MyProfileModule
+      ),         
+  },
+  {
+    path: 'users',
+    loadChildren: () => import('./users/users.module').then(m => m.UsersModule
+      ),         
+  },
+  
+  {
+    path: 'albumns',
+    loadChildren: () => import('./albumns/albumns.module').then(m => m.AlbumnsModule
+      ),         
+  },
+  {
+    path: 'todos',
+    loadChildren: () => import('./todos/todos.module').then(m => m.TodosModule
+      ),         
+  }
 ]
 
 @NgModule({

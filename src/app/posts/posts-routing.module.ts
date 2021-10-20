@@ -7,7 +7,8 @@ const routes:Routes=[
   {
     path:'',
     children: [      
-      { path: 'all', component: PostsComponent },           
+      { path: 'all', component: PostsComponent },
+      { path: ':userId', component: PostsComponent },            
     ]   
   }  
   ]
