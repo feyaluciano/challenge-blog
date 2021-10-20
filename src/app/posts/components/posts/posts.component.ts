@@ -26,24 +26,20 @@ export class PostsComponent implements OnInit {
     this.storagePostsService.storagePosts$.next(this.listPosts);
   }
 
-  
-  
-  
-  
-  
-  
-  
+              
   // getPosts(){
   //     this.postsService.getList().subscribe(posts => {
   //       this.listPosts=JSON.parse(JSON.stringify(posts));
   //     })
   // }    
+  
+  
+  
   ngOnInit(): void {
-    this.storagePostsService.getHandlerSuperHero$().subscribe(list=>{
-      //alert("subb")
+    this.storagePostsService.getHandlerPosts$().subscribe(list=>{      
       console.error(list)      
       this.listPosts=JSON.parse(JSON.stringify(list));
-    })
+    });
 
 
 

@@ -16,7 +16,7 @@ constructor() {
 }
 
 
-public getHandlerSuperHero$(): Observable<Post[]> {
+public getHandlerPosts$(): Observable<Post[]> {
   return this.storagePosts$.asObservable(); 
 }
 
