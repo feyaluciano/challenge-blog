@@ -21,19 +21,33 @@
         <!-- <div *ngFor="let apost of listPosts">
           <app-post [post]="apost" ></app-post>         
         </div> -->
-        <div class="album py-5 bg-light">
+        <div class="py-5 bg-light">
           <div class="container">
       
-            <div class="accordion" id="accordionExample">                          
-              <div class="accordion-item" *ngFor="let atodo of listToDos; let i=index">
+            <div class="accordion" id="accordionExample"> 
+           
+                         
+              <div class="accordion-item" *ngFor="let auser of listUsers; let i=index">
                 <h2 class="accordion-header" id="headingThree">
                   <button class="accordion-button collapsed" (click)="viewDescription(i)"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                   {{ atodo.title}}
+                   {{ auser.name}}
                   </button>
                 </h2>
-                <div id="ToDo{{i}}" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                  <strong>Information about the ToDo  {{ atodo.id}}</strong> 
+                <div id="user{{i}}" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">                   
+                        
+                   <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <app-main-information [user]="user" ></app-main-information>
+                        </div>
+                        <div class="col-md-6">
+                          <app-more-information [user]="user"></app-more-information>
+                        </div>
+                      </div>
+                  </div>
+
+
                   </div>
                 </div>
               </div>

@@ -32,7 +32,7 @@ import { MyProfileModule } from './my-profile/my-profile.module';
     
     
     PostsModule,
-    MyProfileModule
+    
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy } ],
   bootstrap: [AppComponent]
