@@ -1,0 +1,15 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-title">Attention</h4>
+  <button type="button" class="close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p><strong>Are you sure to  {{accion}}  <span class="text-primary">{{entidad}}</span> ?</strong></p>  
+  <span class="text-danger">This operation cannot be undone.</span>
+  
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('0')">Cancelar</button>
+  <button type="button" class="btn btn-danger" (click)="modal.close('1')">Aceptar</button>
+</div>

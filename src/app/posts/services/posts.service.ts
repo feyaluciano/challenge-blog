@@ -26,4 +26,10 @@ getCommentsByIdPost(id:number):Observable<Comment[]>{
 }
 
 
+deleteById(id:number):Observable<Comment[]>{        
+  return this._http.delete<Comment[]>(`${this.api_url}/posts/${id}`, {headers : {'Content-Type' : 'application/json; charset=UTF-8'}     
+});
+}
+
+
 }

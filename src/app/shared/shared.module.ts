@@ -10,6 +10,8 @@ import { ChatComponent } from './components/chat/chat.component';
 import { PresentationComponent } from './components/presentation/presentation.component';
 import { MyProfileModule } from '../my-profile/my-profile.module';
 import { RandomDateDirective } from '../core/directives/random-date.directive';
+import { ModalAlertComponent } from './components/modal-alert/modal-alert.component';
+import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.component';
 
 
 
@@ -24,6 +26,8 @@ import { RandomDateDirective } from '../core/directives/random-date.directive';
     ChatComponent,
     PresentationComponent,
     RandomDateDirective,
+    ModalAlertComponent,
+    ModalConfirmComponent,
   ],
   imports: [CommonModule],
   exports: [
@@ -36,6 +40,8 @@ import { RandomDateDirective } from '../core/directives/random-date.directive';
     ChatComponent,
     PresentationComponent,
     RandomDateDirective,
+    ModalAlertComponent,
+    ModalConfirmComponent,
   ],
 })
 export class SharedModule {}
