@@ -1,0 +1,20 @@
+
+
+<div class="modal-body modal-lg">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <app-main-information [user]="user" ></app-main-information>
+      </div>
+      <div class="col-md-6">
+        <app-more-information [user]="user"></app-more-information>
+      </div>
+    </div>
+</div>
+
+ 
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn app-btn-primary" (click)="activeModal.close('Close click')">close</button>
+</div>

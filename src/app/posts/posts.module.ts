@@ -5,6 +5,7 @@ import { PostsRoutingModule } from './posts-routing.module';
 import { PostsComponent } from './components/posts/posts.component';
 import { SharedModule } from '../shared/shared.module';
 import { PostComponent } from './components/post/post.component';
+import { UsersModule } from '../users/users.module';
 
 
 
@@ -13,7 +14,8 @@ import { PostComponent } from './components/post/post.component';
   imports: [
     CommonModule,
     PostsRoutingModule,
-    SharedModule
+    SharedModule,
+    UsersModule
   ],
   exports:[PostComponent]
 })

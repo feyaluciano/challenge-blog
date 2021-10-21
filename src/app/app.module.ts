@@ -20,8 +20,6 @@ import { MyProfileModule } from './my-profile/my-profile.module';
     BrowserModule,
     CommonModule,
     
-    
-
     AppRoutingModule,
 
 

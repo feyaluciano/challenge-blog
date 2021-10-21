@@ -36,8 +36,7 @@ export class PostsComponent implements OnInit {
   
   
   ngOnInit(): void {
-    this.storagePostsService.getHandlerPosts$().subscribe(list=>{      
-      console.error(list)      
+    this.storagePostsService.getHandlerPosts$().subscribe(list=>{                 
       this.listPosts=JSON.parse(JSON.stringify(list));
     });
 

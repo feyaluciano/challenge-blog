@@ -8,14 +8,34 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MoreFeaturesComponent } from './components/more-features/more-features.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { PresentationComponent } from './components/presentation/presentation.component';
+import { MyProfileModule } from '../my-profile/my-profile.module';
+import { RandomDateDirective } from '../core/directives/random-date.directive';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, NavbarComponent, AdvertisingComponent,FriendRequestsComponent, FooterComponent, MoreFeaturesComponent, ChatComponent,PresentationComponent],
-  imports: [
-    CommonModule
+  declarations: [
+    HeaderComponent,
+    NavbarComponent,
+    AdvertisingComponent,
+    FriendRequestsComponent,
+    FooterComponent,
+    MoreFeaturesComponent,
+    ChatComponent,
+    PresentationComponent,
+    RandomDateDirective,
   ],
-  exports:[HeaderComponent, NavbarComponent,AdvertisingComponent,FriendRequestsComponent, FooterComponent, MoreFeaturesComponent, ChatComponent,PresentationComponent]
+  imports: [CommonModule],
+  exports: [
+    HeaderComponent,
+    NavbarComponent,
+    AdvertisingComponent,
+    FriendRequestsComponent,
+    FooterComponent,
+    MoreFeaturesComponent,
+    ChatComponent,
+    PresentationComponent,
+    RandomDateDirective,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

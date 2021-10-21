@@ -18,6 +18,12 @@ getList():Observable<User[]>{
 }
 
 
+getUserById(id:string):Observable<User[]>{        
+  return this._http.get<User[]>(`${this.api_url}/users/${id}`, {headers : {'Content-Type' : 'application/json; charset=UTF-8'}     
+});
+}
+
+
 
 
 

@@ -19,8 +19,12 @@ export class PostComponent implements OnInit {
         this.post.listComments=[];
         this.post.listComments=JSON.parse(JSON.stringify(comments))        
       })
-  }      
+  }   
   
-  ngOnInit(): void {     
+  
+  
+  
+  ngOnInit(): void {
+        
   }
 }

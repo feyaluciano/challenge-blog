@@ -49,8 +49,7 @@ export class TodosComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.userStatusService.getUser();
-    this.storageTodosService.getHandlerToDos$().subscribe((list) => {
-      console.error(list);
+    this.storageTodosService.getHandlerToDos$().subscribe((list) => {      
       this.listToDos = JSON.parse(JSON.stringify(list));
     });
 

@@ -46,8 +46,7 @@ export class AlbumnsComponent implements OnInit {
 
   ngOnInit() {
     this.user=this.userStatusService.getUser();
-    this.storageAlbumnsService.getHandlerAlbumns$().subscribe(list=>{      
-      console.error(list)      
+    this.storageAlbumnsService.getHandlerAlbumns$().subscribe(list=>{                 
       this.listAlbumns=JSON.parse(JSON.stringify(list));
     });
 
