@@ -5,6 +5,7 @@ import { TodosRoutingModule } from './todos-routing.module';
 import { TodosComponent } from './components/todos/todos.component';
 import { SharedModule } from '../shared/shared.module';
 import { TodosService } from './services/todos.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { TodosService } from './services/todos.service';
     CommonModule,
     TodosRoutingModule,
     SharedModule,
+    ReactiveFormsModule,
   ],
   providers: [TodosService]
 })

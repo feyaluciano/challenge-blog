@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserStatusService } from 'src/app/auth/services/user-status.service';
 import { ToDo } from 'src/app/core/interfaces/ToDo';
@@ -14,10 +15,9 @@ import { StorageTodosService } from '../../storage/storage-todos.service';
 })
 export class TodosComponent implements OnInit {
   public user: User;
-
   public listToDos: ToDo[] = [];
-
   public titleSection: string = '';
+  form: FormGroup;
 
   constructor(
     private userStatusService: UserStatusService,
@@ -25,8 +25,13 @@ export class TodosComponent implements OnInit {
     private storageTodosService: StorageTodosService,
     private router: Router,
     private toDosService: TodosService,
-    private storagePostsService:StoragePostsService
-  ) {}
+    private storagePostsService:StoragePostsService,
+    private _builder: FormBuilder
+  ) {
+    this.form = this._builder.group({      
+      search_posts: ['', [Validators.required]],            
+    });
+  }
 
   viewDescription(id) {
     var element = document.getElementById('ToDo' + id);

@@ -19,6 +19,9 @@ import { TodosService } from 'src/app/todos/services/todos.service';
 import { ToDo } from 'src/app/core/interfaces/ToDo';
 import { StorageUsersService } from 'src/app/users/storage/storage-users.service';
 import { UsersService } from 'src/app/users/services/users.service';
+import { StoragePhotosService } from 'src/app/photos/storage/storage-photos.service';
+import { PhotosService } from 'src/app/photos/services/Photos.service';
+import { Photo } from 'src/app/core/interfaces/Photo';
 
 
 
@@ -32,6 +35,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(
+    private storagePhotosService: StoragePhotosService,
+    private photosService: PhotosService,
     private storageUsersService: StorageUsersService,
     private usersService: UsersService,
     private storageTodosService: StorageTodosService,
@@ -76,6 +81,7 @@ export class LoginComponent implements OnInit {
     const obsListAlbums$ = this.albumnsService.getList();
     const obsListTodos$ = this.todosService.getList();
     const obsListUsers$ = this.usersService.getList();
+    const obsListPhotos$ = this.photosService.getList();
 
     forkJoin([
       obsListPost$.subscribe((listP) => {
@@ -93,6 +99,10 @@ export class LoginComponent implements OnInit {
       obsListUsers$.subscribe((listU) => {
         let listUsers: ToDo[] = JSON.parse(JSON.stringify(listU));
         this.storageUsersService.setListUsers(listUsers);
+      }),
+      obsListPhotos$.subscribe((listPh) => {
+        let listPhotos: Photo[] = JSON.parse(JSON.stringify(listPh));
+        this.storagePhotosService.setListPhoto(listPhotos);
       })
     ]);
   }

@@ -18,6 +18,16 @@
           {{titleSection}}
         </h3>
       </div>
+
+
+<div class="col-md-8">
+  <form class="d-flex" [formGroup]="form">
+    <input formControlName="search_posts" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <!-- <button class="btn btn-outline-primary" type="submit">Search</button>           -->
+  </form>         
+
+</div>
+
         <div class="col-md-8">
         <!-- <div *ngFor="let apost of listPosts">
           <app-post [post]="apost" ></app-post>         
