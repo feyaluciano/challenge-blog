@@ -1,0 +1,60 @@
+<div class="container">
+   
+  <app-header></app-header>
+  <app-navbar></app-navbar>
+      
+</div>
+  
+  <main class="container " >
+    
+    <app-presentation></app-presentation>
+  
+    <app-advertising></app-advertising>
+  
+    <div class="row g-5">
+      <div class="col-md-8">        
+        <div class="container-fluid">
+          <div class="row">
+            <form [formGroup]="form" class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label for="firstName" class="form-label">Title</label>
+                  <input formControlName="title" type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                  <div appMsgErrorForm  mensajeError="Please enter a title"  [valido]="haveErrorInputForm('title')" class="form-text">   </div>
+                </div>
+    
+                <div class="col-sm-6">
+                  <label for="lastName" class="form-label">Body</label>
+                  <textarea formControlName="body" for="lastName" class="form-control"></textarea>
+                  <div appMsgErrorForm  mensajeError="Please enter a body"  [valido]="haveErrorInputForm('body')" class="form-text">   </div>
+                </div>
+                                                                                                                                        
+              </div>
+    
+              <hr class="my-4">
+              
+              <button *ngIf="editing" (click)="save($event)" type="button" class="w-100 btn btn-primary btn-lg" >Update</button>                               																	    
+              <button *ngIf="!editing" (click)="save($event)" type="button" class="w-100 btn btn-primary btn-lg" >Save</button>
+
+             
+            </form>
+            
+          </div>
+        </div>
+
+
+                                                                       
+      </div>
+  
+      <div class="col-md-4">
+        <div class="position-sticky" style="top: 2rem;">
+         <app-friend-requests></app-friend-requests>  
+         <app-more-features></app-more-features>  
+         <app-chat></app-chat>        
+        </div>
+      </div>
+    </div>
+  
+  </main>
+  
+  <app-footer></app-footer>

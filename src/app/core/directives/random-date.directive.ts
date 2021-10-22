@@ -9,8 +9,7 @@ export class RandomDateDirective  {
     this.htmlElement = el;
   }
 
-  ngOnInit() {
-    this.htmlElement.nativeElement.innerHTML = "aaasasas";
+  ngOnInit() {    
     const rangeOfDays=30;
     const startHour=1;
     const hourRange=10;

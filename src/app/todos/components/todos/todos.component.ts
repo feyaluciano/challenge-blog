@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserStatusService } from 'src/app/auth/services/user-status.service';
 import { ToDo } from 'src/app/core/interfaces/ToDo';
 import { User } from 'src/app/core/interfaces/User';
+import { StoragePostsService } from 'src/app/posts/storage/storage-posts.service';
 import { TodosService } from '../../services/todos.service';
 import { StorageTodosService } from '../../storage/storage-todos.service';
 
@@ -23,7 +24,8 @@ export class TodosComponent implements OnInit {
     private route: ActivatedRoute,
     private storageTodosService: StorageTodosService,
     private router: Router,
-    private toDosService: TodosService
+    private toDosService: TodosService,
+    private storagePostsService:StoragePostsService
   ) {}
 
   viewDescription(id) {
@@ -60,5 +62,10 @@ export class TodosComponent implements OnInit {
       this.titleSection = 'These are the To Dos of your friends';
       this.getToDos();
     }
+
+
+    let listPosts=this.storagePostsService.getPosts();
+    this.storagePostsService.storagePosts$.next(listPosts);
+
   }
 }

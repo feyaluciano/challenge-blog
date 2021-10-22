@@ -12,6 +12,8 @@ import { MyProfileModule } from '../my-profile/my-profile.module';
 import { RandomDateDirective } from '../core/directives/random-date.directive';
 import { ModalAlertComponent } from './components/modal-alert/modal-alert.component';
 import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.component';
+import { AuthModule } from '../auth/auth.module';
+import { MsgErrorFormDirective } from '../core/directives/msg-error-form.directive';
 
 
 
@@ -25,12 +27,14 @@ import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.
     MoreFeaturesComponent,
     ChatComponent,
     PresentationComponent,
+    MsgErrorFormDirective,
     RandomDateDirective,
     ModalAlertComponent,
     ModalConfirmComponent,
   ],
   imports: [CommonModule],
   exports: [
+    AuthModule,
     HeaderComponent,
     NavbarComponent,
     AdvertisingComponent,
@@ -39,7 +43,8 @@ import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.
     MoreFeaturesComponent,
     ChatComponent,
     PresentationComponent,
-    RandomDateDirective,
+    RandomDateDirective,    
+    MsgErrorFormDirective,
     ModalAlertComponent,
     ModalConfirmComponent,
   ],

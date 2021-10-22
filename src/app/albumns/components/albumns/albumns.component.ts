@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserStatusService } from 'src/app/auth/services/user-status.service';
 import { Albumn } from 'src/app/core/interfaces/Albumn';
 import { User } from 'src/app/core/interfaces/User';
+import { StoragePostsService } from 'src/app/posts/storage/storage-posts.service';
 import { AlbumnsService } from '../../services/albumns.service';
 import { StorageAlbumnsService } from '../../storage/storage-albumns.service';
 
@@ -19,7 +20,7 @@ export class AlbumnsComponent implements OnInit {
 
   public titleSection:string="";
 
-  constructor(private userStatusService:UserStatusService,private route: ActivatedRoute,private storageAlbumnsService:StorageAlbumnsService,private router:Router,private albumnsService:AlbumnsService) { }
+  constructor(private storagePostsService:StoragePostsService,private userStatusService:UserStatusService,private route: ActivatedRoute,private storageAlbumnsService:StorageAlbumnsService,private router:Router,private albumnsService:AlbumnsService) { }
 
 
 
@@ -45,12 +46,14 @@ export class AlbumnsComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.user=this.userStatusService.getUser();
     this.storageAlbumnsService.getHandlerAlbumns$().subscribe(list=>{                 
       this.listAlbumns=JSON.parse(JSON.stringify(list));
     });
 
-
+    let listPosts=this.storagePostsService.getPosts();
+    this.storagePostsService.storagePosts$.next(listPosts);
 
     if (typeof this.route.snapshot.params['userId'] !== 'undefined') {      
       this.getAlbumnsByUserId(this.route.snapshot.params['userId']);

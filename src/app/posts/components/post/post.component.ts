@@ -17,6 +17,7 @@ export class PostComponent implements OnInit {
   @Input() post: Post;
   public listCommentsApi: Comment[] = [];
   public user:User;
+  public sending:Boolean=false;
   constructor(
     private router: Router,
     private postsService: PostsService,
@@ -26,9 +27,11 @@ export class PostComponent implements OnInit {
   ) {}
 
   getComments(id: number) {
+    this.sending=true;
     this.postsService.getCommentsByIdPost(id).subscribe((comments) => {
       this.post.listComments = [];
       this.post.listComments = JSON.parse(JSON.stringify(comments));
+      this.sending=false;
     });
   }
 
@@ -44,6 +47,10 @@ export class PostComponent implements OnInit {
       },
       () => {}
     );
+  }
+
+  editPost(post: Post) {    
+    this.router.navigate(['/posts/edit/'+post.id]);
   }
 
   deletePost(post: Post) {    

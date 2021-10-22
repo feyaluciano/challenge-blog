@@ -10,6 +10,10 @@ export class UserStatusService {
   private user:User;
 
   constructor() { }
+
+  isUserLoggedIn(): boolean {
+    return this.getUser()!=undefined
+  }
   
   getUser(){
     var user;

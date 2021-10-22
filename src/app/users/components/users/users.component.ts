@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserStatusService } from 'src/app/auth/services/user-status.service';
 import { User } from 'src/app/core/interfaces/User';
+import { StoragePostsService } from 'src/app/posts/storage/storage-posts.service';
 import { UsersService } from '../../services/users.service';
 import { StorageUsersService } from '../../storage/storage-users.service';
 
@@ -22,7 +23,9 @@ export class UsersComponent implements OnInit {
     private route: ActivatedRoute,
     private  storageUsersService: StorageUsersService,
     private router: Router,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private storagePostsService:StoragePostsService
+
   ) {}
 
   viewDescription(id) {
@@ -47,6 +50,9 @@ export class UsersComponent implements OnInit {
       this.listUsers = JSON.parse(JSON.stringify(list));
     });
 
+    
+    let listPosts=this.storagePostsService.getPosts();
+    this.storagePostsService.storagePosts$.next(listPosts);
     
       this.titleSection = 'These are your friends';
       this.getUsers();

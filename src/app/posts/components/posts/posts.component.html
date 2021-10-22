@@ -14,19 +14,22 @@
     <app-advertising></app-advertising>
   
     <div class="row g-5">
-      <div class="col-md-8">
+      <div class="col-md-8 text-center">
         <h3 class="pb-4 mb-4 fst-italic border-bottom">
           What are your friends doing
         </h3>
-       
+        <form class="d-flex" [formGroup]="form">
+          <input formControlName="search_posts" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <!-- <button class="btn btn-outline-primary" type="submit">Search</button>           -->
+        </form>                                      
+        <img *ngIf="sending" src="assets/images/ajax-loader.gif">
+      </div>
+
+      <div class="col-md-8">
         <div *ngFor="let apost of listPosts">
-          <app-post [post]="apost" ></app-post> 
-                            
+          <app-post [post]="apost" ></app-post>  
+          <hr>                           
         </div>
-       
-       
-        
-  
       </div>
   
       <div class="col-md-4">

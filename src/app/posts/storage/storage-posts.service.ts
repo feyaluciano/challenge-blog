@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Post } from 'src/app/core/interfaces/Post';
 import { PostsService } from '../services/posts.service';
 
@@ -11,7 +11,7 @@ export class StoragePostsService {
   public storagePosts$: Subject<Post[]>;
 
   constructor() {
-    this.storagePosts$ = new Subject();
+    this.storagePosts$ = new BehaviorSubject(this.listPosts);
   }
 
   public getHandlerPosts$(): Observable<Post[]> {
@@ -27,7 +27,13 @@ export class StoragePostsService {
     return this.listPosts.length;
   }
 
+  updatePost(post: Post){
+    this.deletePostById(post.id.toString());
+    this.addPost(post);
+  }
+
   addPost(post: Post) {
+    this.listPosts=this.getPosts();
     this.listPosts.push(post);
     localStorage.setItem('posts', JSON.stringify(this.listPosts));
   }
@@ -51,9 +57,22 @@ export class StoragePostsService {
     return JSON.parse(localStorage.getItem('posts'));
   }
 
-  getPostsByUserId(userId: string) {
+  getPostsById(id: string):Post {
     let listPosts: Post[] = JSON.parse(localStorage.getItem('posts'));
-    listPosts = listPosts.filter((x) => x.userId.toString() === userId);
+    listPosts = listPosts.filter((x) => x.id.toString() === id);
+    return listPosts[0];
+  }
+
+  getPostsByUserId(userId: string) {  
+    let listPosts: Post[] = JSON.parse(localStorage.getItem('posts'));
+    listPosts = listPosts.filter((x) => x.userId.toString() === userId);    
     return listPosts;
   }
+
+  getPostsByTitle(title: string) {  
+    let listPosts: Post[] = JSON.parse(localStorage.getItem('posts'));
+    listPosts = listPosts.filter((x) => x.title.toString().includes(title));    
+    return listPosts;
+  }
+
 }
