@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserStatusService } from 'src/app/auth/services/user-status.service';
 import { Albumn } from 'src/app/core/interfaces/Albumn';
 import { Photo } from 'src/app/core/interfaces/Photo';
 import { User } from 'src/app/core/interfaces/User';
+import Swal from 'sweetalert2';
 import { StoragePhotosService } from '../storage/storage-photos.service';
 
 @Component({
@@ -17,6 +18,15 @@ export class PhotosComponent implements OnInit {
   public user:User;
 
   public listPhotos:Photo[]=[];
+
+  public listArray:Photo[]=[];
+  public positionCurrent:number=0;
+  public cantPhotos:number=6
+
+
+  
+
+  
 
 
   constructor(
@@ -40,6 +50,40 @@ export class PhotosComponent implements OnInit {
     this.storagePhotosService.storagePhotos$.next(this.listPhotos);
   }
 
+  
+
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+  onScroll(event) {  
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {    
+    this.addItems(this.positionCurrent,this.cantPhotos);
+  }
+}
+
+
+viewPhoto(url){
+//alert(url)
+
+ 
+
+Swal.fire({
+  html:   
+    '<img class="img-fluid" src="'+url+'"></img> ',     
+    heightAuto: true,
+})
+
+}
+
+  
+
+addItems(currentPos,end){  
+  end=currentPos+ this.cantPhotos;  
+  for (let j=currentPos; j<end;j++) {
+    if (this.listPhotos.length > this.listArray.length ) {
+      this.listArray.push(this.listPhotos[j])
+    }
+  }
+  this.positionCurrent=this.positionCurrent + this.cantPhotos;
+}
 
 
   ngOnInit() {
@@ -60,6 +104,13 @@ export class PhotosComponent implements OnInit {
       this.getPhotos();
     }
 
+    
+
+   this.addItems(this.positionCurrent,this.cantPhotos)
+   
+
+
+   
 
   }
 

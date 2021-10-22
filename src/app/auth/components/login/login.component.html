@@ -1,6 +1,6 @@
 <main class="form-signin text-center">
     <form  [formGroup]="loginForm"     >
-      <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+      <img class="mb-4 img-fluid" src="../assets/images/logo.png" alt=""  >
       <h1 class="h3 mb-3 fw-normal">Warm Face</h1>
   
       <div class="form-floating">
@@ -14,10 +14,24 @@
   
       <div class="checkbox mb-3">
         <label>
-          <input type="checkbox" value="remember-me"> Remember me
+          <input type="checkbox" value="remember-me"> Create account
         </label>
       </div>
       <button (click)="login()" class="w-100 btn btn-lg btn-primary" type="button">Sign in</button>
+
+
+      <div class="alert alert-dark mt-4" role="alert">
+        Enter an id between 1 and 10 (user id)
+      </div>
+
+
       <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
     </form>
+
+
+   
+
+
+
+
   </main>

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PhotosRoutingModule } from './photos-routing.module';
 import { PhotosComponent } from './photos/photos.component';
 import { SharedModule } from '../shared/shared.module';
-import { UsersModule } from '../users/users.module';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -14,6 +14,7 @@ import { UsersModule } from '../users/users.module';
     
     PhotosRoutingModule,
     SharedModule,
+    InfiniteScrollModule
     
   ]
 })
