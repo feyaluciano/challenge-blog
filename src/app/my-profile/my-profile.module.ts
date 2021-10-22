@@ -12,8 +12,7 @@ import { ModalUserComponent } from './components/modal-user/modal-user.component
 
 @NgModule({
   declarations: [ProfileComponent,MainInformationComponent,MoreInformationComponent,ModalUserComponent],
-  imports: [
-    
+  imports: [    
     CommonModule,
     MyProfileRoutingModule,
     ReactiveFormsModule,
