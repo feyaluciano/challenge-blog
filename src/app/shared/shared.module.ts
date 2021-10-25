@@ -14,6 +14,7 @@ import { ModalAlertComponent } from './components/modal-alert/modal-alert.compon
 import { ModalConfirmComponent } from './components/modal-confirm/modal-confirm.component';
 import { AuthModule } from '../auth/auth.module';
 import { MsgErrorFormDirective } from '../core/directives/msg-error-form.directive';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -32,7 +33,7 @@ import { MsgErrorFormDirective } from '../core/directives/msg-error-form.directi
     ModalAlertComponent,
     ModalConfirmComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   exports: [
     AuthModule,
     HeaderComponent,

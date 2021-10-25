@@ -1,37 +1,39 @@
 <main class="form-signin text-center">
-    <form  [formGroup]="loginForm"     >
-      <img class="mb-4 img-fluid" src="../assets/images/logo.png" alt=""  >
-      <h1 class="h3 mb-3 fw-normal">Warm Face</h1>
-  
-      <div class="form-floating">
-        <input type="email" formControlName="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
-      </div>
-      <div class="form-floating">
-        <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
-      </div>
-  
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Create account
-        </label>
-      </div>
-      <button (click)="login()" class="w-100 btn btn-lg btn-primary" type="button">Sign in</button>
+  <form [formGroup]="loginForm">
+    <img class="mb-4 img-fluid" src="assets/images/logo.png" alt="">
+    <h1 class="h3 mb-3 fw-normal">Warm Face</h1>
+
+    <div class="form-floating">
+      <input type="email" formControlName="email" class="form-control" id="floatingInput"
+        placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating">
+      <input formControlName="password" type="password" class="form-control" id="floatingPassword"
+        placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Create account
+      </label>
+    </div>
+    <button (click)="login()" class="w-100 btn btn-lg btn-primary" type="button">Sign in</button>
 
 
-      <div class="alert alert-dark mt-4" role="alert">
-        Enter an id between 1 and 10 (user id)
-      </div>
+    <div class="alert alert-dark mt-4" role="alert">
+      Enter an id between 1 and 10 (user id)
+    </div>
 
 
-      <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
-    </form>
-
-
-   
+    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+  </form>
 
 
 
 
-  </main>
+
+
+
+</main>

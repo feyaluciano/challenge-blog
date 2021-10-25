@@ -6,12 +6,12 @@
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
-        <a class="btn btn-outline-primary " style="margin-right: 5px;" href="#/posts/{{user.id}}">My posts</a>
-        <a class="btn btn-outline-primary" href="#/posts/new">New post</a>
+        <a class="btn btn-outline-primary " style="margin-right: 5px;" [routerLink]="['/posts/'+user.id]">My posts</a>
+        <a class="btn btn-outline-primary"   [routerLink]="['/posts/new']">New post</a>
       </li>
-      <li class="list-group-item"><a class="btn btn-outline-primary"href="#/albumns/{{user.id}}">My albums</a></li>
+      <li class="list-group-item"><a class="btn btn-outline-primary" [routerLink]="['/albumns/'+user.id]" >My albums</a></li>
       <li class="list-group-item">
-        <a class="btn btn-outline-primary" href="#/todos/{{user.id}}">My To-dos</a>
+        <a class="btn btn-outline-primary"  [routerLink]="['/todos/'+user.id]" >My To-dos</a>
       </li>
       
       

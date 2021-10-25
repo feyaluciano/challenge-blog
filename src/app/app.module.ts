@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MyProfileModule } from './my-profile/my-profile.module';
+import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { MyProfileModule } from './my-profile/my-profile.module';
     ReactiveFormsModule,
     AuthModule,
 
-    
+    RouterModule,
+
+    SharedModule,
     
     PostsModule,
     

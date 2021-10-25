@@ -27,25 +27,25 @@ export class StoragePhotosService {
     return this.listPhotos.length;
   }
 
-  updatePhoto(Photo: Photo){
+  updatePhoto(Photo: Photo) {
     this.deletePhotoById(Photo.id.toString());
     this.addPhoto(Photo);
   }
 
   addPhoto(Photo: Photo) {
-    this.listPhotos=this.getPhotos();
+    this.listPhotos = this.getPhotos();
     this.listPhotos.push(Photo);
     localStorage.setItem('photos', JSON.stringify(this.listPhotos));
   }
   deletePhotoById(id: string) {
     let list = this.getPhotos();
     let index;
-    let p=0;
-    let ok=true;
-    while (p < list.length && (ok)  ) {
+    let p = 0;
+    let ok = true;
+    while (p < list.length && ok) {
       if (list[p].id == id) {
         index = p;
-        ok=false;
+        ok = false;
       }
       p++;
     }
@@ -57,22 +57,21 @@ export class StoragePhotosService {
     return JSON.parse(localStorage.getItem('photos'));
   }
 
-  getPhotosById(id: string):Photo {
+  getPhotosById(id: string): Photo {
     let listPhotos: Photo[] = JSON.parse(localStorage.getItem('photos'));
     listPhotos = listPhotos.filter((x) => x.id.toString() === id);
     return listPhotos[0];
   }
 
-  getPhotosByAlbumId(albumId: string) {  
+  getPhotosByAlbumId(albumId: string) {
     let listPhotos: Photo[] = JSON.parse(localStorage.getItem('photos'));
-    listPhotos = listPhotos.filter((x) => x.albumId.toString() === albumId);    
+    listPhotos = listPhotos.filter((x) => x.albumId.toString() === albumId);
     return listPhotos;
   }
 
-  getPhotosByTitle(title: string) {  
+  getPhotosByTitle(title: string) {
     let listPhotos: Photo[] = JSON.parse(localStorage.getItem('photos'));
-    listPhotos = listPhotos.filter((x) => x.title.toString().includes(title));    
+    listPhotos = listPhotos.filter((x) => x.title.toString().includes(title));
     return listPhotos;
   }
-
 }

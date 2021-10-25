@@ -10,33 +10,25 @@ import { StoragePhotosService } from '../storage/storage-photos.service';
 @Component({
   selector: 'app-photos',
   templateUrl: './photos.component.html',
-  styleUrls: ['./photos.component.css']
+  styleUrls: ['./photos.component.css'],
 })
 export class PhotosComponent implements OnInit {
-  public titleSection:string="Photos";
+  public titleSection: string = 'Photos';
 
-  public user:User;
+  public user: User;
 
-  public listPhotos:Photo[]=[];
+  public listPhotos: Photo[] = [];
 
-  public listArray:Photo[]=[];
-  public positionCurrent:number=0;
-  public cantPhotos:number=6
-
-
-  
-
-  
-
+  public listArray: Photo[] = [];
+  public positionCurrent: number = 0;
+  public cantPhotos: number = 6;
 
   constructor(
     private storagePhotosService: StoragePhotosService,
     private userStatusService: UserStatusService,
-    private route: ActivatedRoute,    
-    private router: Router,   
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
-
-
 
   getPhotos() {
     this.listPhotos = this.storagePhotosService.getPhotos();
@@ -50,41 +42,32 @@ export class PhotosComponent implements OnInit {
     this.storagePhotosService.storagePhotos$.next(this.listPhotos);
   }
 
-  
-
   @HostListener('window:scroll', ['$event']) // for window scroll events
-  onScroll(event) {  
-  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {    
-    this.addItems(this.positionCurrent,this.cantPhotos);
-  }
-}
-
-
-viewPhoto(url){
-//alert(url)
-
- 
-
-Swal.fire({
-  html:   
-    '<img class="img-fluid" src="'+url+'"></img> ',     
-    heightAuto: true,
-})
-
-}
-
-  
-
-addItems(currentPos,end){  
-  end=currentPos+ this.cantPhotos;  
-  for (let j=currentPos; j<end;j++) {
-    if (this.listPhotos.length > this.listArray.length ) {
-      this.listArray.push(this.listPhotos[j])
+  onScroll(event) {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.offsetHeight - 100
+    ) {
+      this.addItems(this.positionCurrent, this.cantPhotos);
     }
   }
-  this.positionCurrent=this.positionCurrent + this.cantPhotos;
-}
 
+  viewPhoto(url) {    
+    Swal.fire({
+      html: '<img class="img-fluid" src="' + url + '"></img> ',
+      heightAuto: true,
+    });
+  }
+
+  addItems(currentPos, end) {
+    end = currentPos + this.cantPhotos;
+    for (let j = currentPos; j < end; j++) {
+      if (this.listPhotos.length > this.listArray.length) {
+        this.listArray.push(this.listPhotos[j]);
+      }
+    }
+    this.positionCurrent = this.positionCurrent + this.cantPhotos;
+  }
 
   ngOnInit() {
     this.user = this.userStatusService.getUser();
@@ -95,7 +78,6 @@ addItems(currentPos,end){
     let listPhotos = this.storagePhotosService.getPhotos();
     this.storagePhotosService.storagePhotos$.next(listPhotos);
 
-
     if (typeof this.route.snapshot.params['albumId'] !== 'undefined') {
       this.getPhotosByAlbumId(this.route.snapshot.params['albumId']);
       this.titleSection = 'These are your photos';
@@ -104,14 +86,6 @@ addItems(currentPos,end){
       this.getPhotos();
     }
 
-    
-
-   this.addItems(this.positionCurrent,this.cantPhotos)
-   
-
-
-   
-
+    this.addItems(this.positionCurrent, this.cantPhotos);
   }
-
 }

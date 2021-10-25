@@ -1,5 +1,5 @@
 <article class="blog-post">
-  <h2 class="blog-post-title">{{post.title}}</h2>
+  <h2 class="blog-post-title" [ngClass]="{'title_my_post' : user.id==post.userId}">{{post.title}}</h2>
   
     
     

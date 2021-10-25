@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#/my-profile" title="My Profile" rel="nofollow">
+      <a class="navbar-brand" [routerLink]="['/my-profile']"  title="My Profile" rel="nofollow">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-bounding-box" viewBox="0 0 16 16">
           <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z"/>
           <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -12,21 +12,21 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#/users/all">Users</a>
+            <a class="nav-link active" aria-current="page" [routerLink]="['/users/all']"  >Users</a>
           </li>
          
           <li class="nav-item dropdown">
-            <a class="nav-link" aria-current="page" href="#/posts/all">Posts</a>                       
+            <a class="nav-link" aria-current="page" [routerLink]="['/posts/all']">Posts</a>                       
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" href="#/albumns/all" >Albums</a>
+            <a class="nav-link" href="#" tabindex="-1" [routerLink]="['/albumns/all']"  >Albums</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#/todos/all" tabindex="-1" >To-Dos</a>
+            <a class="nav-link" [routerLink]="['/todos/all']"  tabindex="-1" >To-Dos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#/posts/{{user.id}}" tabindex="-1" >My posts</a>
+            <a class="nav-link" [routerLink]="['/posts/'+user.id]"  tabindex="-1" >My posts</a>
           </li>
 
         </ul>
