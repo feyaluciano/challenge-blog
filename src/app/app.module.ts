@@ -11,7 +11,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MyProfileModule } from './my-profile/my-profile.module';
 import { SharedModule } from './shared/shared.module';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,6 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     AuthModule,
-
-    RouterModule,
 
     SharedModule,
     
